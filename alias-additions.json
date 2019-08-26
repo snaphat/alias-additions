@@ -3,7 +3,7 @@
  	"description": "Adds an alias 'scoop update-all' for updating scoops and apps., 'scoop cleanup-all' for removing old versions of all apps, 'scoop list-all' which list all app names, 'scoop info-all' which list all apps with their description, and 'scoop search-info <\"keyword\">' which searches all app descriptions and returns apps containing the specified keyword.",
     "version": "v0.0.2",
     "url": "https://raw.githubusercontent.com/snaphat/alias-additions/master/README.md",
-    "hash": "6572afb05b8fc81c51a5ae8c961b84b825f1f3b0e6f761e7e90329cc25e6cc01",
+    "hash": "9e2c9e489cd1dc832b3256948fe42c54ab192a4fc6bc129fb16cb83d733c5630",
     "installer": {
         "script": [
             "function global:Write-Host() {}",
