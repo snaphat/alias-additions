@@ -1,5 +1,4 @@
-alias-additions
-=
+# alias-additions
 
 [Scoop bucket](https://github.com/lukesampson/scoop/wiki/Buckets) with [alias-additions](https://github.com/snaphat/alias-additions) for [scoop](http://scoop.sh) to ease updating and searching for apps.
 
