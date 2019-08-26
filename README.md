@@ -1,6 +1,6 @@
 # alias-additions
 
-A [Scoop bucket](https://github.com/lukesampson/scoop/wiki/Buckets) with an Alias-additions app for [scoop](http://scoop.sh) to ease updating and searching for apps.
+A [Scoop bucket](https://github.com/lukesampson/scoop/wiki/Buckets) with an alias-additions app for [scoop](http://scoop.sh) to ease updating and searching for apps.
 
 Description
 -
