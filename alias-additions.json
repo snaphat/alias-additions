@@ -13,7 +13,7 @@
             "scoop alias rm search-info | out-null",
             "Remove-Item -Path Function:Write-Host",
             "Write-Host -NoNewline \"Adding alias for \"; Write-host -ForegroundColor green \"update-all\"",
-            "scoop alias add update-all \"scoop update `\"*`\"\" \"Update all apps and scoop\"",
+            "scoop alias add update-all \"scoop update; scoop update `\"*`\"\" \"Update all apps and scoop\"",
             "Write-Host -NoNewline \"Adding alias for \"; Write-host -ForegroundColor green \"list-all\"",
             "scoop alias add list-all \"ls -recurse `$bucketsdir | Select-String `\".*description`\" | %{`$A=(`$_.filename.substring(0,`$_.filename.length-5)); Write-Host `$A; }\" \"List all apps\"",
             "Write-Host -NoNewline \"Adding alias for \"; Write-host -ForegroundColor green \"info-all\"",
