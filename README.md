@@ -9,7 +9,7 @@ Adds an alias 'scoop update-all' for updating scoops and apps.', 'scoop list-all
 Installation
 -
 ```
-$ scoop bucket add scoop-viewer-bucket https://github.com/snaphat/alias-additions.git
+$ scoop bucket add alias-additions https://github.com/snaphat/alias-additions.git
 $ scoop install alias-additions
 ```
 
