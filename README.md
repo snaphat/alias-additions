@@ -1,10 +1,10 @@
 # alias-additions
 
-[Scoop bucket](https://github.com/lukesampson/scoop/wiki/Buckets) with [alias-additions](https://github.com/snaphat/alias-additions) for [scoop](http://scoop.sh) to ease updating and searching for apps.
+A [Scoop bucket](https://github.com/lukesampson/scoop/wiki/Buckets) with an Alias-additions app for [scoop](http://scoop.sh) to ease updating and searching for apps.
 
 Description
 -
-Adds an alias 'scoop update-all' for updating scoops and apps.', 'scoop list-all' which list all app names, 'scoop info-all' which list all apps with their description, and 'scoop search-info <"keyword">' which searches all app descriptions and returns apps containing the specified keyword.
+Alias-Additions adds an alias 'scoop update-all' for updating scoops and apps.', 'scoop list-all' which list all app names, 'scoop info-all' which list all apps with their description, and 'scoop search-info <"keyword">' which searches all app descriptions and returns apps containing the specified keyword.
 
 Installation
 -
