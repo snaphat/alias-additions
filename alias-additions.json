@@ -1,14 +1,16 @@
 {
 	"homepage": "https://github.com/snaphat/alias-additions",
- 	"description": "Adds an alias 'scoop update-all' for updating scoops and apps., 'scoop cleanup-all' for removing old versions of all apps, 'scoop list-all' which list all app names, 'scoop info-all' which list all apps with their description, and 'scoop search-info <\"keyword\">' which searches all app descriptions and returns apps containing the specified keyword.",
-    "version": "v0.0.2",
+ 	"description": "Adds an alias 'scoop update-all' for updating scoops and apps, 'scoop cleanup-all' for removing old versions of all apps, 'scoop cache-show-all' for showing the download cache of all apps, 'scoop cache-rm-all' for clearing the download cache of all apps, 'scoop list-all' which list all app names, 'scoop info-all' which list all apps with their description, and 'scoop search-info <\"keyword\">' which searches all app descriptions and returns apps containing the specified keyword.",
+    "version": "v0.0.3",
     "url": "https://raw.githubusercontent.com/snaphat/alias-additions/master/README.md",
-    "hash": "9e2c9e489cd1dc832b3256948fe42c54ab192a4fc6bc129fb16cb83d733c5630",
+    "hash": "2ba805678c1a3633e5efd15edd94d50ee71785f70369449ebf55735836f66578",
     "installer": {
         "script": [
             "function global:Write-Host() {}",
             "scoop alias rm update-all",
             "scoop alias rm cleanup-all",
+            "scoop alias rm cache-show-all",
+            "scoop alias rm cache-rm-all",
             "scoop alias rm list-all",
             "scoop alias rm info-all",
             "scoop alias rm search-info",
@@ -16,11 +18,15 @@
             "Write-Host -NoNewline \"Adding alias for \"; Write-host -ForegroundColor green \"update-all\"",
             "scoop alias add update-all \"scoop update; scoop update `\"*`\"\" \"Update all apps and scoop\"",
             "Write-Host -NoNewline \"Adding alias for \"; Write-host -ForegroundColor green \"cleanup-all\"",
+            "scoop alias add cache-show-all \"scoop cache show `\"*`\"\" \"Show the download cache for all apps\"",
+            "Write-Host -NoNewline \"Adding alias for \"; Write-host -ForegroundColor green \"cache-show-all\"",
+            "scoop alias add cache-rm-all \"scoop cache rm `\"*`\"\" \"Clear the download cache for all apps\"",
+            "Write-Host -NoNewline \"Adding alias for \"; Write-host -ForegroundColor green \"cache-rm-all\"",
             "scoop alias add cleanup-all \"scoop cleanup `\"*`\"\" \"Cleanup all apps by removing old versions\"",
             "Write-Host -NoNewline \"Adding alias for \"; Write-host -ForegroundColor green \"list-all\"",
-            "scoop alias add list-all \"ls -recurse `$bucketsdir | Select-String `\".*description`\" | %{`$A=(`$_.filename.substring(0,`$_.filename.length-5)); Write-Host `$A; }\" \"List all apps\"",
+            "scoop alias add list-all \"ls -recurse `$bucketsdir | Select-String `\".*description`\" | %{`$A=(`$_.filename.substring(0,`$_.filename.length-5)); Write-Host `$A; }\" \"List apps in all buckets\"",
             "Write-Host -NoNewline \"Adding alias for \"; Write-host -ForegroundColor green \"info-all\"",
-            "scoop alias add info-all \"ls -recurse `$bucketsdir | Select-String `\".*description`\" | %{`$A=(`$_.filename.substring(0,`$_.filename.length-5)); `$B=`$_.Line.split('`\"'); `$B=`$B[3..(`$B.length-2)]; Write-Host -NoNewLine -foreground green `$A; Write-Host (`\" `\" *(40-`$A.length)) `$B }\" \"Display information about apps in all buckets.\"",
+            "scoop alias add info-all \"ls -recurse `$bucketsdir | Select-String `\".*description`\" | %{`$A=(`$_.filename.substring(0,`$_.filename.length-5)); `$B=`$_.Line.split('`\"'); `$B=`$B[3..(`$B.length-2)]; Write-Host -NoNewLine -foreground green `$A; Write-Host (`\" `\" *(40-`$A.length)) `$B }\" \"Display information about apps in all buckets\"",
             "Write-Host -NoNewline \"Adding alias for \"; Write-host -ForegroundColor green \"search-info\"",
             "scoop alias add search-info \"ls -recurse `$bucketsdir | Select-String `\".*description`\" | Select-String `\".*`$(`$args[0]).*`\" | %{`$A=(`$_.filename.substring(0,`$_.filename.length-5)); `$B=`$_.Line.split('`\"'); `$B=`$B[3..(`$B.length-2)]; Write-Host -NoNewLine -foreground green `$A; Write-Host (`\" `\" *(40-`$A.length)) `$B }\" \"Search available apps and display information about each app\""
         ]
@@ -29,6 +35,8 @@
         "script": [
             "scoop alias rm update-all",
             "scoop alias rm cleanup-all",
+            "scoop alias rm cache-show-all",
+            "scoop alias rm cache-rm-all",
             "scoop alias rm list-all",
             "scoop alias rm info-all",
             "scoop alias rm search-info"
