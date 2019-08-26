@@ -2,8 +2,8 @@
 	"homepage": "https://github.com/snaphat/alias-additions",
  	"description": "Adds an alias 'scoop update-all' for updating scoops and apps.', 'scoop list-all' which list all app names, 'scoop info-all' which list all apps with their description, and 'scoop search-info <\"keyword\">' which searches all app descriptions and returns apps containing the specified keyword.",
     "version": "v0.0.1",
-    "url": "https://raw.githubusercontent.com/snaphat/alias-additions/master/stub",
-    "hash": "725c546b990dd1b41f3d5791b37c3c0edcb1f08cf150bdae32a73dfd166e02d7",
+    "url": "https://raw.githubusercontent.com/snaphat/alias-additions/master/empty",
+    "hash": "2e1cfa82b035c26cbbbdae632cea070514eb8b773f616aaeaf668e2f0be8f10d",
     "installer": {
         "script": [
             "function global:Write-Host() {}",
@@ -20,7 +20,6 @@
             "scoop alias add info-all \"ls -recurse `$bucketsdir | Select-String `\".*description`\" | %{`$A=(`$_.filename.substring(0,`$_.filename.length-5)); `$B=`$_.Line.split('`\"'); `$B=`$B[3..(`$B.length-2)]; Write-Host -NoNewLine -foreground green `$A; Write-Host (`\" `\" *(40-`$A.length)) `$B }\" \"Display information about apps in all buckets.\"",
             "Write-Host -NoNewline \"Adding alias for \"; Write-host -ForegroundColor green \"search-info\"",
             "scoop alias add search-info \"ls -recurse `$bucketsdir | Select-String `\".*description`\" | Select-String `\".*`$(`$args[0]).*`\" | %{`$A=(`$_.filename.substring(0,`$_.filename.length-5)); `$B=`$_.Line.split('`\"'); `$B=`$B[3..(`$B.length-2)]; Write-Host -NoNewLine -foreground green `$A; Write-Host (`\" `\" *(40-`$A.length)) `$B }\" \"Search available apps and display information about each app\""
-
         ]
     },
     "uninstaller": {
