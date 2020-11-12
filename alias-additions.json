@@ -1,7 +1,7 @@
 {
-	"homepage": "https://github.com/snaphat/alias-additions",
- 	"description": "Adds an alias 'scoop update-all' for updating scoops and apps, 'scoop cleanup-all' for removing old versions of all apps, 'scoop cache-show-all' for showing the download cache of all apps, 'scoop cache-rm-all' for clearing the download cache of all apps, 'scoop list-all' which list all app names, 'scoop info-all' which list all apps with their description, and 'scoop search-info <\"keyword\">' which searches all app descriptions and returns apps containing the specified keyword.",
-    "version": "v0.0.3",
+    "homepage": "https://github.com/snaphat/alias-additions",
+    "description": "Adds an alias 'scoop update-all' for updating scoops and apps, 'scoop cleanup-all' for removing old versions of all apps, 'scoop cache-show-all' for showing the download cache of all apps, 'scoop cache-rm-all' for clearing the download cache of all apps, 'scoop list-all' which list all app names, 'scoop info-all' which list all apps with their description, and 'scoop search-info <\"keyword\">' which searches all app descriptions and returns apps containing the specified keyword.",
+    "version": "v0.0.4",
     "url": "https://raw.githubusercontent.com/snaphat/alias-additions/master/README.md",
     "hash": "2ba805678c1a3633e5efd15edd94d50ee71785f70369449ebf55735836f66578",
     "installer": {
@@ -28,7 +28,10 @@
             "Write-Host -NoNewline \"Adding alias for \"; Write-host -ForegroundColor green \"info-all\"",
             "scoop alias add info-all \"ls -recurse `$bucketsdir | Select-String `\".*description`\" | %{`$A=(`$_.filename.substring(0,`$_.filename.length-5)); `$B=`$_.Line.split('`\"'); `$B=`$B[3..(`$B.length-2)]; Write-Host -NoNewLine -foreground green `$A; Write-Host (`\" `\" *(40-`$A.length)) `$B }\" \"Display information about apps in all buckets\"",
             "Write-Host -NoNewline \"Adding alias for \"; Write-host -ForegroundColor green \"search-info\"",
-            "scoop alias add search-info \"ls -recurse `$bucketsdir | Select-String `\".*description`\" | Select-String `\".*`$(`$args[0]).*`\" | %{`$A=(`$_.filename.substring(0,`$_.filename.length-5)); `$B=`$_.Line.split('`\"'); `$B=`$B[3..(`$B.length-2)]; Write-Host -NoNewLine -foreground green `$A; Write-Host (`\" `\" *(40-`$A.length)) `$B }\" \"Search available apps and display information about each app\""
+            "scoop alias add search-info \"ls -recurse `$bucketsdir | Select-String `\".*description`\" | Select-String `\".*`$(`$args[0]).*`\" | %{`$A=(`$_.filename.substring(0,`$_.filename.length-5)); `$B=`$_.Line.split('`\"'); `$B=`$B[3..(`$B.length-2)]; Write-Host -NoNewLine -foreground green `$A; Write-Host (`\" `\" *(40-`$A.length)) `$B }\" \"Search available apps and display information about each app\"",
+            "Write-Host -NoNewline \"Adding alias for \"; Write-host -ForegroundColor green \"bucket-origin\"",
+            "scoop alias add bucket-origin \"Get-ChildItem `$bucketsdir | ForEach-Object { `$BUCKET = `$_.name; `$ORIGIN = `&git -C `$bucketsdir\\`$BUCKET\\ remote get-url origin; Write-Host -NoNewLine -foreground green `$BUCKET; Write-Host (`\" `\" *(40 - `$BUCKET.length)) `$ORIGIN } \" \"Show the scoop buckets and their `\"git origin`\" info\""
+
         ]
     },
     "uninstaller": {
@@ -39,7 +42,8 @@
             "scoop alias rm cache-rm-all",
             "scoop alias rm list-all",
             "scoop alias rm info-all",
-            "scoop alias rm search-info"
+            "scoop alias rm search-info",
+            "scoop alias rm bucket-origin"
         ]
     }
 }
